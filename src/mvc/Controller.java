@@ -1,9 +1,5 @@
 package mvc;
 
-import org.apache.poi.hwpf.HWPFDocument;
-import org.apache.poi.hwpf.extractor.WordExtractor;
-import org.apache.poi.xwpf.usermodel.XWPFDocument;
-import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 
 import java.io.*;
 import java.util.List;
@@ -21,16 +17,23 @@ public class Controller {
     }
 
     public void processUser() throws IOException {
-        XWPFDocument doc = model.createDoc(new File(View.LECT_12));
-        List<XWPFParagraph> paragraphs = doc.getParagraphs();
-        StringBuilder text = new StringBuilder();
-        for(XWPFParagraph s: paragraphs){
-            text.append(s.getText()).append(" ");
-        }
-        System.out.println(text);
-//        System.out.println(paragraphs.get(25).getText());
-//        model.dissambleParagraph(paragraphs.get(25));
+        String text = initialization("Lect12.txt");
     }
 
+     String initialization(String path){
+
+         String text = "";
+         try {
+             FileInputStream fis = new FileInputStream(path);
+             byte[] str = new byte[fis.available()];
+             fis.read(str);
+             text = new String(str);
+         } catch (FileNotFoundException e) {
+             e.printStackTrace();
+         } catch (IOException e) {
+             e.printStackTrace();
+         }
+         return text.replaceAll("(\\t+)|(\\s+)", " ");
+     }
 
 }
