@@ -21,9 +21,12 @@ public class Model {
     void disambledText(String text){
 
 //        Matcher matcher = View.REGEX_SENTENCE.matcher(text);
-        Matcher matcher = View.REGEX_START_SENTENCE.matcher(text);
+//        Matcher matcher = View.REGEX_START_SENTENCE.matcher(text);
+        System.out.println("START DISAMBLED");
+        Matcher matcher = View.REGEX_ABST_UNION.matcher(text);
         while (matcher.find()){
             System.out.println(matcher.group());
+            System.out.println("=================");
         }
     }
 }
