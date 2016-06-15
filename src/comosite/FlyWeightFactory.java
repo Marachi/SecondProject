@@ -8,9 +8,9 @@ import java.util.TreeSet;
  * Created by potaychuk on 14.06.2016.
  */
 public class FlyWeightFactory<E> {
-   Map<E, LectureElement> map = new HashMap<E, LectureElement>();
+   Map<String, LectureElement> map = new HashMap<String, LectureElement>();
 
-    LectureElement create(E element) {
+    public LectureElement create(String element) {
        if(map.containsKey(element)){
            return  map.get(element);
        }else {
@@ -19,4 +19,9 @@ public class FlyWeightFactory<E> {
            return ne;
        }
    }
+    public void printElements(){
+        for (LectureElement le:map.values()) {
+            System.out.println(le);
+        }
+    }
 }

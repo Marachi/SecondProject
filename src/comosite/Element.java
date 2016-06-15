@@ -4,11 +4,15 @@ package comosite;
  * Created by Kate on 13.06.2016.
  */
 public class Element implements LectureElement{
+    static int counter= 0;
 
     private String value;
+    private int id;
 
-    public <E> Element(E element) {
-        value = (String)element;
+    public Element(String element) {
+        counter++;
+        id = counter;
+        value = element;
     }
 
 
@@ -27,6 +31,6 @@ public class Element implements LectureElement{
 
     @Override
     public String toString() {
-        return value;
+        return value+" id = "+id;
     }
 }

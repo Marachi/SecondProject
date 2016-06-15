@@ -21,7 +21,12 @@ public class Controller {
 
 //        System.out.println(text);
 
-        model.disambledTextSentTest(text);
+//        model.disambledTextSentTest(text);
+        model.disambleForSentences(text);
+//        model.sentences.printElements();
+//        model.factory.printElements();
+        model.words.printElements();
+        model.factory.printElements();
 
         }
 
