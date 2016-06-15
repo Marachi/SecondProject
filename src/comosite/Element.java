@@ -24,4 +24,9 @@ public class Element implements LectureElement{
     public void add(LectureElement element) {
 
     }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }

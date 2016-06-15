@@ -1,11 +1,9 @@
 package mvc;
 
+import comosite.CompositeElement;
+import comosite.Element;
 import textElements.LectText;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,16 +12,24 @@ import java.util.regex.Pattern;
  */
 public class Model {
 
-    LectText lectText = new LectText();
 
+    public CompositeElement sentences = new CompositeElement();
 
-
-    void disambledText(String text){
-
-//        Matcher matcher = View.REGEX_SENTENCE.matcher(text);
-//        Matcher matcher = View.REGEX_START_SENTENCE.matcher(text);
+    void disambleForSentences(String text){
         System.out.println("START DISAMBLED");
-        Matcher matcher = View.REGEX_ABST_UNION.matcher(text);
+        Matcher matcher = Pattern.compile(View.SENTANCE).matcher(text);
+        while (matcher.find()){
+            sentences.add(new Element(matcher.group()));
+        }
+    }
+
+
+
+
+
+    void disambledTextSentTest(String text){
+        System.out.println("START DISAMBLED");
+        Matcher matcher = Pattern.compile(View.SENTANCE2).matcher(text);
         while (matcher.find()){
             System.out.println(matcher.group());
             System.out.println("=================");

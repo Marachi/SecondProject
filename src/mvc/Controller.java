@@ -1,8 +1,9 @@
 package mvc;
 
 
+import comosite.LectureElement;
+
 import java.io.*;
-import java.util.List;
 
 /**
  * Created by potaychuk on 13.06.2016.
@@ -17,11 +18,32 @@ public class Controller {
     }
 
     public void processUser() {
-      String text = initialization2("Lect12.txt");
-      System.out.println(text);
-        model.disambledText(text);
-    }
+        String text = initialization2("Lect12.txt");
+        text = removeDoubleSpace(text);
 
+//        System.out.println(text);
+
+        model.disambledTextSentTest(text);
+
+        }
+
+
+
+
+    /**
+     * This method replace consequences of spaces and tabulation with a single space
+     * @param text is text to be modified
+     * @return modified text
+     */
+    private String removeDoubleSpace(String text){
+        text= text.replaceAll("\\n", View.END_OF_ROW).  //mark \n
+                replaceAll("(\\s+)|\\t", " ").          //replace double spaces and tabulation with a single space
+                replaceAll(View.END_OF_ROW, "\n").      //return \n
+                replaceAll("\\n\\s", "\n").             //remove necessary spaces at start of rows
+                replaceAll("\\n+", "\n");               //remove necessary \n at start of rows
+
+        return text;
+    }
 
     /**
      * This method create a String with text

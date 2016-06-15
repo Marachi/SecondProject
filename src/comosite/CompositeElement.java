@@ -9,7 +9,11 @@ import java.util.List;
 public class CompositeElement implements LectureElement {
     List<LectureElement> elements = new ArrayList<>();
 
-
+    public void printElements(){
+        for (LectureElement le : elements){
+            System.out.println(le);
+        }
+    }
     @Override
     public void add(LectureElement element) {
         elements.add(element);
