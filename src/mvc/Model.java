@@ -1,9 +1,9 @@
 package mvc;
 
-import comosite.CompositeElement;
-import comosite.Element;
-import comosite.FlyWeightFactory;
-import comosite.LectureElement;
+import components.CompositeElement;
+import components.Element;
+import components.FlyWeightFactory;
+import components.LectureElement;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,22 +19,32 @@ public class Model {
     /**
      * It's composite of text's sentences
      */
-    private CompositeElement sentences = new CompositeElement();
+    private CompositeElement sentences;
 
     /**
      * It's composite of sentence's words
      */
-    private CompositeElement words = new CompositeElement();
+    private CompositeElement words;
 
     /**
      * It's fly-weight sentanceFactory which prevents LectureElement object's duplication
      */
-    private FlyWeightFactory<LectureElement> sentanceFactory = new FlyWeightFactory<>();
+    private FlyWeightFactory<LectureElement> sentanceFactory;
 
     /**
      * It's fly-weight wordFactory which prevents LectureElement object's duplication
      */
-    private FlyWeightFactory<LectureElement> wordFactory = new FlyWeightFactory<>();
+    private FlyWeightFactory<LectureElement> wordFactory;
+
+    /**
+     * Default constructor
+     */
+    public Model(){
+        sentences = new CompositeElement();
+        words = new CompositeElement();
+        sentanceFactory= new FlyWeightFactory<>();
+        wordFactory = new FlyWeightFactory<>();
+    }
 
     /**
      * This method parses text for sentences and sentences for words
@@ -68,7 +78,7 @@ public class Model {
      * @param text is text to be modified
      * @return modified text
      */
-    String removeDoubleSpace(String text){
+    public String removeDoubleSpace(String text){
         text= text.replaceAll("\\n", View.END_OF_ROW).  //mark \n
                 replaceAll("(\\s+)|\\t", " ").          //replace double spaces and tabulation with a single space
                 replaceAll(View.END_OF_ROW, "\n").      //return \n

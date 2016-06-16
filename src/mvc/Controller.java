@@ -1,11 +1,7 @@
 package mvc;
 
 
-import comosite.Element;
-import comosite.LectureElement;
-
 import java.io.*;
-import java.util.*;
 
 /**
  * Created by potaychuk on 13.06.2016.

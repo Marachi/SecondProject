@@ -1,9 +1,6 @@
 package mvc;
 
-import comosite.LectureElement;
-
 import java.util.Collection;
-import java.util.regex.Pattern;
 
 /**
  * Created by potaychuk on 13.06.2016.

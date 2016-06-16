@@ -1,13 +1,11 @@
-package comosite;
+package components;
 
 import mvc.View;
-
-import java.util.Comparator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by Kate on 13.06.2016.
+ * Created by Potaychuk Sviatoslav on 13.06.2016.
  */
 public class Element implements LectureElement, Comparable {
 
@@ -24,33 +22,6 @@ public class Element implements LectureElement, Comparable {
         value = element;
     }
 
-
-
-    //setters & getters
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-
-
-    @Override
-    public int compareTo(Object o) {
-        Element e = (Element) o;
-
-        if (ratioVowels(this)< ratioVowels(e)){
-            return 1;
-        }else if (ratioVowels(this)> ratioVowels(e)){
-            return -1;
-        }else {
-            return 0;
-        }
-
-    }
-
     /**
      * This method returns ratio of no vowels to vowels symbols in word of element
      * @param element
@@ -65,6 +36,28 @@ public class Element implements LectureElement, Comparable {
         return (double)vowelsCount/element.value.length();
     }
 
+    //setters & getters
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Element e = (Element) o;
+
+        if (ratioVowels(this)< ratioVowels(e)){
+            return 1;
+        }else if (ratioVowels(this)> ratioVowels(e)){
+            return -1;
+        }else {
+            return 0;
+        }
+
+    }
     @Override
     public String toString() {
         return value;
@@ -73,21 +66,6 @@ public class Element implements LectureElement, Comparable {
     public int hashCode() {
         return value.hashCode();
     }
-
-//    @Override
-//    public int compare(Object o1, Object o2) {
-//        Element e1 = (Element)o1;
-//        Element e2 = (Element)o2;
-//
-//        if (ratioVowels(e1)< ratioVowels(e2)){
-//            return 1;
-//        }else if (ratioVowels(e1)> ratioVowels(e2)){
-//            return -1;
-//        }else {
-//            return 0;
-//        }
-//    }
-
     @Override
     public boolean equals(Object obj) {
         return this == obj || !(obj == null || getClass() != obj.getClass()) && this.value.equals(((Element) obj).getValue());

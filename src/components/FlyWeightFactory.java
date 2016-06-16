@@ -1,8 +1,7 @@
-package comosite;
+package components;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeSet;
 
 /**
  * Created by potaychuk on 14.06.2016.

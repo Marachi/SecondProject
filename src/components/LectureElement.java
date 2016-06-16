@@ -1,6 +1,4 @@
-package comosite;
-
-import java.util.Comparator;
+package components;
 
 /**
  * Created by Kate on 13.06.2016.
