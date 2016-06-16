@@ -16,6 +16,7 @@ import java.util.List;
  * Created by potaychuk on 16.06.2016.
  */
 public class ModelTest {
+
     Model model = new Model();
     View view = new View();
     Controller controller = new Controller(model,view);
@@ -53,17 +54,33 @@ public class ModelTest {
 
     @Test
     public void writeTextTest() throws Exception {
-        StringBuilder text= new StringBuilder();
+        String text1= "";
+        String text2= "";
+
         String testString = "Test. writeTextTest";
-        String path= "writeTextTest.txt";
-        model.writeText(testString, path);
-        String line ="";
-        BufferedReader br = new BufferedReader(new FileReader(path));
-            while ((line =br.readLine())!=null) {
-                text = text.append(line).append('\n');
+        String path1= "writeTextTest1.txt";
+        String path2= "writeTextTest2.txt";
+
+        model.writeText(testString, path1);
+
+        BufferedWriter bw = new BufferedWriter(new FileWriter(path2));
+        bw.write(testString);
+        bw.close();
+
+        String line1 ="";
+        BufferedReader br1 = new BufferedReader(new FileReader(path1));
+            while ((line1 =br1.readLine())!=null) {
+                text1 = text1+line1;
             }
-            br.close();
-        Assert.assertTrue(text.toString().equals(testString));
+        br1.close();
+
+        String line2 ="";
+        BufferedReader br2 = new BufferedReader(new FileReader(path2));
+        while ((line2 =br2.readLine())!=null) {
+            text2 = text2+line2;
+        }
+        br2.close();
+        Assert.assertEquals(text1,text2);
     }
 
 }

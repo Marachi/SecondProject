@@ -11,7 +11,7 @@ public class FlyWeightFactory<E> {
     /**
      * It's a map of the elements
      */
-    private Map<String, LectureElement> map = new HashMap<String, LectureElement>();
+    private Map<String, LectureElement> map = new HashMap<>();
 
     /**
      * This method create unique elements or returns already existed
