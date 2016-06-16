@@ -6,6 +6,7 @@ import mvc.View;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,6 +49,21 @@ public class ModelTest {
     public void removeDoubleSpace() throws Exception {
         String testString = "text  \n";
         Assert.assertTrue(model.removeDoubleSpace(testString).equals("text \n"));
+    }
+
+    @Test
+    public void writeTextTest() throws Exception {
+        StringBuilder text= new StringBuilder();
+        String testString = "Test. writeTextTest";
+        String path= "writeTextTest.txt";
+        model.writeText(testString, path);
+        String line ="";
+        BufferedReader br = new BufferedReader(new FileReader(path));
+            while ((line =br.readLine())!=null) {
+                text = text.append(line).append('\n');
+            }
+            br.close();
+        Assert.assertTrue(text.toString().equals(testString));
     }
 
 }

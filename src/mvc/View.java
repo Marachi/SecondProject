@@ -9,6 +9,7 @@ public class View {
 
 
     public static final String LECT_TXT = "Lect12.txt";
+    public static final String LECT_WRITTEN_TXT = "1.txt";
     public static final String END_OF_ROW = "END_OF_ROW";
     public static final String VOWELS_SYMBOLS = "[АУОЫИЭЕІауоыиэеіAEIOUaeiou]";
     public static final String SENTENCE = "(((?<=\n)\\d\\. )?[А-Я](([^\\.])+?(([A-Za-z()]*\\.[A-Za-z()]+)|([0-9]+\\.[0-9]*))*)+((\\.|!|\\?)(?!\\S[А-Я])))";

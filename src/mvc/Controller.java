@@ -36,8 +36,8 @@ public class Controller {
         String text = initText(View.LECT_TXT);    //write txt in String
         text = model.removeDoubleSpace(text);     //remove unnecessary space symbols
         model.disambleText(text);                 //parsing
-
         view.printCollection(model.sortedVowelsWords()); //view sorted words
+        model.writeText(text,View.LECT_WRITTEN_TXT); //write a text to file
     }
 
     /**
@@ -53,6 +53,7 @@ public class Controller {
             while ((line =br.readLine())!=null) {
                 text = text.append(line).append('\n');
             }
+            br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -5,6 +5,7 @@ import components.Element;
 import components.FlyWeightFactory;
 import components.LectureElement;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -48,7 +49,7 @@ public class Model {
 
     /**
      * This method parses text for sentences and sentences for words
-     * @param text
+     * @param text is text which will be parsed
      */
     public void disambleText(String text){
         Matcher matcher = Pattern.compile(View.SENTENCE_PARSE).matcher(text);
@@ -72,6 +73,21 @@ public class Model {
         return list;
     }
 
+    /**
+     * This method write a text to file
+     * @param text is text which will be written
+     * @param path is path of new file
+     */
+    public void writeText(String text, String path) {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+            bw.write(text);
+            bw.flush();
+            bw.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
 
     /**
      * This method replace consequences of spaces and tabulation with a single space
@@ -89,7 +105,7 @@ public class Model {
 
     /**
      * This method parses text for words
-     * @param text
+     * @param text is text which will be parsed
      */
     private void disambleForWords(String text){
         Matcher matcher = Pattern.compile(View.WORD_PARSE).matcher(text);
