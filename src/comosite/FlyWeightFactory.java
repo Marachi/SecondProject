@@ -8,20 +8,34 @@ import java.util.TreeSet;
  * Created by potaychuk on 14.06.2016.
  */
 public class FlyWeightFactory<E> {
-   Map<String, LectureElement> map = new HashMap<String, LectureElement>();
 
-    public LectureElement create(String element) {
-       if(map.containsKey(element)){
-           return  map.get(element);
+    /**
+     * It's a map of the elements
+     */
+    private Map<String, LectureElement> map = new HashMap<String, LectureElement>();
+
+    /**
+     * This method create unique elements or returns already existed
+     * @param txt is value of element
+     * @return element with txt value
+     */
+    public LectureElement create(String txt) {
+       if(map.containsKey(txt)){
+           return  map.get(txt);
        }else {
-           LectureElement ne = new Element(element);
-           map.put(element, ne);
+           LectureElement ne = new Element(txt);
+           map.put(txt, ne);
            return ne;
        }
    }
-    public void printElements(){
-        for (LectureElement le:map.values()) {
-            System.out.println(le);
-        }
+
+
+    //getters & setters
+    public Map<String, LectureElement> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, LectureElement> map) {
+        this.map = map;
     }
 }
