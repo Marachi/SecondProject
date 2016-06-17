@@ -74,14 +74,11 @@ public class Model {
             }else {
                 words.add(wordFactory.create(word, LectureElement.Type.SYMBOL));
             }
-
-
         }
     }
 
-
     /**
-     * This method returns sorted by vowel containing list of words of text from list of words and symbols
+     * This method gets only words from sentences and sorts it by vowel
      * @return sorted list
      */
     public List<Element> sortedVowelsWords(){
