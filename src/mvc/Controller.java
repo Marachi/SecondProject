@@ -2,6 +2,7 @@ package mvc;
 
 
 import java.io.*;
+import java.util.List;
 
 /**
  * Created by potaychuk on 13.06.2016.
@@ -33,11 +34,12 @@ public class Controller {
      */
     public void processUser() {
 
-        String text = initText(View.LECT_TXT);    //write txt in String
-        text = model.removeDoubleSpace(text);     //remove unnecessary space symbols
-        model.disambleText(text);                 //parsing
-        view.printCollection(model.sortedVowelsWords()); //view sorted words
-        model.writeText(text,View.LECT_WRITTEN_TXT); //write a text to file
+        String text = initText(View.LECT_TXT);                  //write txt in String
+        text = model.removeDoubleSpace(text);                   //remove unnecessary space symbols
+        model.disambleText(text);                               //parsing
+        List listOfSortedWords = model.sortedVowelsWords();     //get a list of sorted words
+        view.printCollection(listOfSortedWords);                //view sorted words
+        writeText(text,View.LECT_WRITTEN_TXT);                  //write a text to file
     }
 
     /**
@@ -60,14 +62,19 @@ public class Controller {
         return  text.toString();
     }
 
-
-    void writeText(String path, String text){
+    /**
+     * This method write a text to file
+     * @param text is text which will be written
+     * @param path is path of new file
+     */
+    public void writeText(String text, String path) {
         try {
-            FileWriter fos = new FileWriter(path);
-            fos.write(text);
-        } catch (IOException e) {
-            e.printStackTrace();
+            BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+            bw.write(text);
+            bw.flush();
+            bw.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
         }
     }
-
 }

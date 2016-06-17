@@ -73,21 +73,7 @@ public class Model {
         return list;
     }
 
-    /**
-     * This method write a text to file
-     * @param text is text which will be written
-     * @param path is path of new file
-     */
-    public void writeText(String text, String path) {
-        try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(path));
-            bw.write(text);
-            bw.flush();
-            bw.close();
-        } catch (IOException e1) {
-            e1.printStackTrace();
-        }
-    }
+
 
     /**
      * This method replace consequences of spaces and tabulation with a single space
