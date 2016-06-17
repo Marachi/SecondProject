@@ -15,14 +15,14 @@ public class FlyWeightFactory<E> {
     /**
      * It's a map of the elements
      */
-    private Map<String, LectureElement> map = new HashMap<>();
+    private Map<String, Element> map = new HashMap<>();
 
     /**
      * This method create unique elements or returns already existed
      * @param txt is value of element
      * @return element with txt value
      */
-    public LectureElement create(String txt, LectureElement.Type type) {
+    public LectureElement create(String txt, Element.Type type) {
        if(map.containsKey(txt)){
            return  map.get(txt);
        }else {
@@ -34,11 +34,11 @@ public class FlyWeightFactory<E> {
 
 
     //getters & setters
-    public Map<String, LectureElement> getMap() {
+    public Map<String, Element> getMap() {
         return map;
     }
 
-    public void setMap(Map<String, LectureElement> map) {
+    public void setMap(Map<String, Element> map) {
         this.map = map;
     }
 }
