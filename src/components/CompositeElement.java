@@ -40,9 +40,9 @@ public class CompositeElement implements LectureElement {
     }
 
     @Override
-    public void print() {
+    public void printToConsol() {
         for(LectureElement le: elements){
-            System.out.println(le);
+            System.out.println(le + ""+ ((Element)le).getType());
         }
     }
 }

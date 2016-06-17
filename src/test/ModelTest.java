@@ -10,6 +10,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.TreeSet;
 
 
 /**
@@ -61,7 +62,7 @@ public class ModelTest {
         String path1= "writeTextTest1.txt";
         String path2= "writeTextTest2.txt";
 
-        model.writeText(testString, path1);
+        controller.writeText(testString, path1);
 
         BufferedWriter bw = new BufferedWriter(new FileWriter(path2));
         bw.write(testString);

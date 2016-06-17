@@ -9,5 +9,7 @@ public interface LectureElement{
      * This method will be realized by heirs
      * This method prints inner value
      */
-    void print();
+    void printToConsol();
+
+    enum Type{SENTENCE, WORD, SYMBOL }
 }

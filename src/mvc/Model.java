@@ -55,25 +55,45 @@ public class Model {
         Matcher matcher = Pattern.compile(View.SENTENCE_PARSE).matcher(text);
         while (matcher.find()){
             String sentence = matcher.group();
-            sentences.add(sentanceFactory.create(sentence));
+            sentences.add(sentanceFactory.create(sentence, LectureElement.Type.SENTENCE));
             disambleForWords(sentence);
         }
     }
 
     /**
-     * This method returns sorted by vowel containing list of words of text
+     * This method parses text for words
+     * @param sentence is text which will be parsed
+     */
+    private void disambleForWords(String sentence){
+        Matcher matcher = Pattern.compile(View.COMB_WORDS).matcher(sentence);
+        while (matcher.find()){
+            String word = matcher.group();
+            Matcher mWord = Pattern.compile(View.WORD_PARSE).matcher(word);
+            if(mWord.matches()){
+                words.add(wordFactory.create(word, LectureElement.Type.WORD));
+            }else {
+                words.add(wordFactory.create(word, LectureElement.Type.SYMBOL));
+            }
+
+
+        }
+    }
+
+
+    /**
+     * This method returns sorted by vowel containing list of words of text from list of words and symbols
      * @return sorted list
      */
     public List<Element> sortedVowelsWords(){
         List<Element> list = new ArrayList<>();
         for (LectureElement el: wordFactory.getMap().values()){
-                   list.add((Element)el );
+            if (((Element) el).getType().equals(LectureElement.Type.WORD)) {
+                list.add((Element) el);
+            }
         }
         Collections.sort(list);
         return list;
     }
-
-
 
     /**
      * This method replace consequences of spaces and tabulation with a single space
@@ -89,17 +109,6 @@ public class Model {
         return text;
     }
 
-    /**
-     * This method parses text for words
-     * @param text is text which will be parsed
-     */
-    private void disambleForWords(String text){
-        Matcher matcher = Pattern.compile(View.WORD_PARSE).matcher(text);
-        while (matcher.find()){
-            String word = matcher.group();
-            words.add(wordFactory.create(word));
-        }
-    }
 
     //getters & setters
     public CompositeElement getSentences() {

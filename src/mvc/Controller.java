@@ -1,8 +1,13 @@
 package mvc;
 
 
+import components.LectureElement;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.TreeSet;
 
 /**
  * Created by potaychuk on 13.06.2016.
@@ -37,9 +42,12 @@ public class Controller {
         String text = initText(View.LECT_TXT);                  //write txt in String
         text = model.removeDoubleSpace(text);                   //remove unnecessary space symbols
         model.disambleText(text);                               //parsing
+
+//        model.getWords().printToConsol();
+
         List listOfSortedWords = model.sortedVowelsWords();     //get a list of sorted words
         view.printCollection(listOfSortedWords);                //view sorted words
-        writeText(text,View.LECT_WRITTEN_TXT);                  //write a text to file
+//        writeText(text,View.LECT_WRITTEN_TXT);                  //write a text to file
     }
 
     /**

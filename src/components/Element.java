@@ -15,11 +15,17 @@ public class Element implements LectureElement, Comparable {
     private String value;
 
     /**
+     * Type of element
+     */
+    private Type type;
+
+    /**
      * Constructor
      * @param element
      */
-    Element(String element) {
+    Element(String element, Type type) {
         value = element;
+        this.type=type;
     }
 
     /**
@@ -39,6 +45,14 @@ public class Element implements LectureElement, Comparable {
     //setters & getters
     public String getValue() {
         return value;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public void setValue(String value) {
@@ -65,7 +79,7 @@ public class Element implements LectureElement, Comparable {
     }
 
     @Override
-    public void print() {
+    public void printToConsol() {
         System.out.println(value);
     }
 }

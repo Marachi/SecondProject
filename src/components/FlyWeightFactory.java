@@ -1,7 +1,11 @@
 package components;
 
+import mvc.View;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Created by Potaychuk Sviatoslav on 13.06.2016.
@@ -18,13 +22,13 @@ public class FlyWeightFactory<E> {
      * @param txt is value of element
      * @return element with txt value
      */
-    public LectureElement create(String txt) {
+    public LectureElement create(String txt, LectureElement.Type type) {
        if(map.containsKey(txt)){
            return  map.get(txt);
        }else {
-           LectureElement ne = new Element(txt);
-           map.put(txt, ne);
-           return ne;
+           Element el = new Element(txt, type);
+           map.put(el.getValue(), el);
+           return el;
        }
    }
 

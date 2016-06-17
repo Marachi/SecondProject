@@ -17,6 +17,8 @@ public class View {
     public static final String AFTER_NODOT_SENTENCE = "(?<=(\\s))([А-Я]([^\\.])+(?=(\n[А-Я])))";
     public static final String SENTENCE_PARSE =  HEADERS +"|"+SENTENCE +"|"+AFTER_NODOT_SENTENCE;
     public static final String WORD_PARSE =  "(([А-Яа-яA-Za-z]+)([-][А-Яа-яA-Za-z]+)*)";
+    public static final String NO_WORD_PARSE =  "[\\W_0-9]";
+    public static final String COMB_WORDS =  WORD_PARSE+"|"+NO_WORD_PARSE;
 
 
     void printCollection(Collection collection){
