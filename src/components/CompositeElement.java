@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Kate on 13.06.2016.
+ * Created by Potaychuk Sviatoslav on 13.06.2016.
  */
 public class CompositeElement implements LectureElement {
 
@@ -39,4 +39,10 @@ public class CompositeElement implements LectureElement {
         elements.remove(le);
     }
 
+    @Override
+    public void print() {
+        for(LectureElement le: elements){
+            System.out.println(le);
+        }
+    }
 }

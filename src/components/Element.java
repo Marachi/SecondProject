@@ -27,7 +27,7 @@ public class Element implements LectureElement, Comparable {
      * @param element
      * @return ratio
      */
-    private double ratioVowels(Element element){
+    private static double ratioVowels(Element element){
         int vowelsCount =0;
         Matcher m = Pattern.compile(View.VOWELS_SYMBOLS).matcher(element.value);
         while (m.find()){
@@ -48,7 +48,6 @@ public class Element implements LectureElement, Comparable {
     @Override
     public int compareTo(Object o) {
         Element e = (Element) o;
-
         if (ratioVowels(this)< ratioVowels(e)){
             return 1;
         }else if (ratioVowels(this)> ratioVowels(e)){
@@ -70,5 +69,10 @@ public class Element implements LectureElement, Comparable {
     public boolean equals(Object obj) {
         return this == obj || !(obj == null || getClass() != obj.getClass()) && this.value.equals(((Element) obj).getValue());
 
+    }
+
+    @Override
+    public void print() {
+        System.out.println(value);
     }
 }

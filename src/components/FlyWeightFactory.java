@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by potaychuk on 14.06.2016.
+ * Created by Potaychuk Sviatoslav on 13.06.2016.
  */
 public class FlyWeightFactory<E> {
 

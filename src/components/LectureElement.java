@@ -1,7 +1,13 @@
 package components;
 
 /**
- * Created by Kate on 13.06.2016.
+ * Created by Potaychuk Sviatoslav on 13.06.2016.
  */
 public interface LectureElement{
+
+    /**
+     * This method will be realized by heirs
+     * This method prints inner value
+     */
+    void print();
 }
