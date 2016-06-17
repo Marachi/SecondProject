@@ -11,5 +11,9 @@ public interface LectureElement{
      */
     void printToConsol();
 
+
+    /**
+     * It's enum of types elements
+     */
     enum Type{SENTENCE, WORD, SYMBOL }
 }
