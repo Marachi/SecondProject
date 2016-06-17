@@ -48,14 +48,7 @@ public class Element implements LectureElement, Comparable {
     @Override
     public int compareTo(Object o) {
         Element e = (Element) o;
-        if (ratioVowels(this)< ratioVowels(e)){
-            return 1;
-        }else if (ratioVowels(this)> ratioVowels(e)){
-            return -1;
-        }else {
-            return 0;
-        }
-
+        return (int) Math.signum(ratioVowels(e)-ratioVowels(this));
     }
     @Override
     public String toString() {
