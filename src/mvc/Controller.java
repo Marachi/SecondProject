@@ -42,12 +42,9 @@ public class Controller {
         String text = initText(View.LECT_TXT);                  //write txt in String
         text = model.removeDoubleSpace(text);                   //remove unnecessary space symbols
         model.disambleText(text);                               //parsing
-
-//        model.getWords().printToConsol();
-
         List listOfSortedWords = model.sortedVowelsWords();     //get a list of sorted words
         view.printCollection(listOfSortedWords);                //view sorted words
-//        writeText(text,View.LECT_WRITTEN_TXT);                  //write a text to file
+        writeText(text,View.LECT_WRITTEN_TXT);                  //write a text to file
     }
 
     /**

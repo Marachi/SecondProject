@@ -59,8 +59,8 @@ public class ModelTest {
         String text2= "";
 
         String testString = "Test. writeTextTest";
-        String path1= "writeTextTest1.txt";
-        String path2= "writeTextTest2.txt";
+        String path1= "C:\\Users\\Kate\\IdeaProjects\\WordConnect2\\src\\txt\\writeTextTest1.txt";
+        String path2= "C:\\Users\\Kate\\IdeaProjects\\WordConnect2\\src\\txt\\writeTextTest2.txt";
 
         controller.writeText(testString, path1);
 

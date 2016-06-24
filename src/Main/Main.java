@@ -1,11 +1,9 @@
-package Main;
+package main;
 
 
 import mvc.Controller;
 import mvc.Model;
 import mvc.View;
-
-import java.io.IOException;
 
 public class Main {
 
